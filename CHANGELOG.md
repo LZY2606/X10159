@@ -1,0 +1,851 @@
+## [1.4.1](https://github.com/Rich-Harris/magic-string/compare/v1.4.0...v1.4.1) (2026-09-15)
+
+### Bug Fixes
+
+* flush the shared encoder buffer at the end of every drain ([#356](https://github.com/Rich-Harris/magic-string/issues/356)) ([f682ccf](https://github.com/Rich-Harris/magic-string/commit/f682ccfc5973d4ffc2d5aabc01060d8c78f52bcb))
+
+# [1.4.0](https://github.com/Rich-Harris/magic-string/compare/v1.3.2...v1.4.0) (2026-09-15)
+
+### Bug Fixes
+
+* don't resurrect removed content in replace/replaceAll ([#352](https://github.com/Rich-Harris/magic-string/issues/352)) ([c847b0e](https://github.com/Rich-Harris/magic-string/commit/c847b0eb3999a1374994b73d9a4410cf82f43b4d))
+
+### Features
+
+* add affinity option to move() ([#351](https://github.com/Rich-Harris/magic-string/issues/351)) ([f849b39](https://github.com/Rich-Harris/magic-string/commit/f849b3961ce162e045fdf1d3b1b11bb7879d7c25))
+* **bundle:** add toMagicString() to flatten a Bundle into a MagicString ([#353](https://github.com/Rich-Harris/magic-string/issues/353)) ([3a7c7b0](https://github.com/Rich-Harris/magic-string/commit/3a7c7b0dea1cf634833ecc16e2a0df8e3363282f))
+
+### Performance Improvements
+
+* encode mappings incrementally in generateMap to cut peak memory ([#350](https://github.com/Rich-Harris/magic-string/issues/350)) ([1401f6c](https://github.com/Rich-Harris/magic-string/commit/1401f6c8e05b5652c65e26a7f6485024b2053148))
+
+## [1.3.2](https://github.com/Rich-Harris/magic-string/compare/v1.3.1...v1.3.2) (2026-09-15)
+
+### Bug Fixes
+
+* carry trimStart and trimEnd into the outro and intro ([#348](https://github.com/Rich-Harris/magic-string/issues/348)) ([07d2fcb](https://github.com/Rich-Harris/magic-string/commit/07d2fcb2a77936a2a095262d5a9b60b3d2eafe82))
+* preserve inserts anchored to the edges of a removed range ([#282](https://github.com/Rich-Harris/magic-string/issues/282)) ([#349](https://github.com/Rich-Harris/magic-string/issues/349)) ([bd7ee85](https://github.com/Rich-Harris/magic-string/commit/bd7ee85c544f485d35889e4d207862146b75a6a0))
+* return an empty slice when the end index resolves to zero ([#346](https://github.com/Rich-Harris/magic-string/issues/346)) ([5531971](https://github.com/Rich-Harris/magic-string/commit/55319710e3cf244670f84bad38fd783a85fddd1f))
+* treat moving a range to where it already sits as a no-op ([#347](https://github.com/Rich-Harris/magic-string/issues/347)) ([22ed11b](https://github.com/Rich-Harris/magic-string/commit/22ed11b402c9caf05083b328c3a1e4b2e87f3b9a))
+
+## [1.3.1](https://github.com/Rich-Harris/magic-string/compare/v1.3.0...v1.3.1) (2026-09-10)
+
+# [1.3.0](https://github.com/Rich-Harris/magic-string/compare/v1.2.3...v1.3.0) (2026-09-10)
+
+### Bug Fixes
+
+* count source appends and prepends in Bundle#length ([#344](https://github.com/Rich-Harris/magic-string/issues/344)) ([f1797b4](https://github.com/Rich-Harris/magic-string/commit/f1797b4ac7e2b8e7c1e94add1a6190eefd5ab09b)), closes [Bundle#length](https://github.com/Bundle/issues/length)
+* count string-level appends and prepends in isEmpty ([#345](https://github.com/Rich-Harris/magic-string/issues/345)) ([d489a75](https://github.com/Rich-Harris/magic-string/commit/d489a758a959cddc3d0d09f1a00001c021e04f12))
+* expand `$` substitutions in `replace` as `String.prototype` does ([#340](https://github.com/Rich-Harris/magic-string/issues/340)) ([cd05874](https://github.com/Rich-Harris/magic-string/commit/cd058747cb21b8eb557313b1c096a34297aaa79a))
+* indent content added with `append`/`prepend` ([#343](https://github.com/Rich-Harris/magic-string/issues/343)) ([18986e0](https://github.com/Rich-Harris/magic-string/commit/18986e039f119ce0fab63e8a7b912b422f0ac4e7))
+* only pass the groups object to a replacer when the pattern has named groups ([#342](https://github.com/Rich-Harris/magic-string/issues/342)) ([574366f](https://github.com/Rich-Harris/magic-string/commit/574366f3cb93315d3ddd78ba91ed8bbc95fe07fd))
+
+### Features
+
+* add hires mode source map mode using range mappings ([#317](https://github.com/Rich-Harris/magic-string/issues/317)) ([708e379](https://github.com/Rich-Harris/magic-string/commit/708e3793aac8fa85617b9b8790edb0d283199256))
+* support a function for `includeContent` in Bundle ([#165](https://github.com/Rich-Harris/magic-string/issues/165)) ([ead0c08](https://github.com/Rich-Harris/magic-string/commit/ead0c08a017663fe46b1c91a67b12e50092a41c2))
+
+### Performance Improvements
+
+* avoid split() when locating lines ([#338](https://github.com/Rich-Harris/magic-string/issues/338)) ([7e0060b](https://github.com/Rich-Harris/magic-string/commit/7e0060b062ede107816e682b69845aaf8cbb7622))
+* walk unedited chunks line by line when generating mappings ([#339](https://github.com/Rich-Harris/magic-string/issues/339)) ([910a39c](https://github.com/Rich-Harris/magic-string/commit/910a39c960406c261042861a8f2ae61cf3cf0dcb))
+
+## [1.2.3](https://github.com/Rich-Harris/magic-string/compare/v1.2.2...v1.2.3) (2026-08-26)
+
+### Bug Fixes
+
+* clamp negative indices below -length instead of wrapping repeatedly ([#337](https://github.com/Rich-Harris/magic-string/issues/337)) ([9391bb7](https://github.com/Rich-Harris/magic-string/commit/9391bb73118a03eef42a0524a3d4ade3aae28915))
+* guess the most common indentation in a bundle ([#334](https://github.com/Rich-Harris/magic-string/issues/334)) ([111b030](https://github.com/Rich-Harris/magic-string/commit/111b0309846a0a3c2fa6a21ea2c47ae21abdd79d))
+* handle empty matches in `replace` and `replaceAll` ([#335](https://github.com/Rich-Harris/magic-string/issues/335)) ([b6a53f7](https://github.com/Rich-Harris/magic-string/commit/b6a53f770f2ed60ecf143175ad8f38790702c0e8))
+* trim the separators between sources ([#333](https://github.com/Rich-Harris/magic-string/issues/333)) ([1bb4cce](https://github.com/Rich-Harris/magic-string/commit/1bb4cce75efba314b1950a7cede137f85cc4d959))
+
+## [1.2.2](https://github.com/Rich-Harris/magic-string/compare/v1.2.1...v1.2.2) (2026-08-20)
+
+### Bug Fixes
+
+* `hasChanged` reports a change when an edit spans a chunk boundary ([#331](https://github.com/Rich-Harris/magic-string/issues/331)) ([811de46](https://github.com/Rich-Harris/magic-string/commit/811de465580f74f33a536b116301c9ea8d39a63c))
+* keep the ignore-list hint and stored names when cloning ([#329](https://github.com/Rich-Harris/magic-string/issues/329)) ([ddf02ca](https://github.com/Rich-Harris/magic-string/commit/ddf02ca11512b04f1b8e926da415db23b20adeb1))
+
+### Performance Improvements
+
+* optimize `hasChanged` ([#328](https://github.com/Rich-Harris/magic-string/issues/328)) ([e324bc4](https://github.com/Rich-Harris/magic-string/commit/e324bc4081ae3f753d4a6198c69330ffc1a73277))
+
+## [1.2.1](https://github.com/Rich-Harris/magic-string/compare/v1.2.0...v1.2.1) (2026-08-19)
+
+### Bug Fixes
+
+* count separators in Bundle#isEmpty ([#327](https://github.com/Rich-Harris/magic-string/issues/327)) ([0bc98c9](https://github.com/Rich-Harris/magic-string/commit/0bc98c91226dbca3d5991547614d4f1ab13254e0)), closes [Bundle#isEmpty](https://github.com/Bundle/issues/isEmpty)
+* throw instead of corrupting the chunk list on an overlapping move ([#326](https://github.com/Rich-Harris/magic-string/issues/326)) ([9a9207c](https://github.com/Rich-Harris/magic-string/commit/9a9207cdb81e8d07e103e714c8e34ad5b3f7639c))
+
+# [1.2.0](https://github.com/Rich-Harris/magic-string/compare/v1.1.1...v1.2.0) (2026-08-13)
+
+### Features
+
+* introduce MagicStringError with concise, consistent messages ([#324](https://github.com/Rich-Harris/magic-string/issues/324)) ([57080e7](https://github.com/Rich-Harris/magic-string/commit/57080e71e8a6ebbf9daf7f03c2b1fde396120210))
+
+## [1.1.1](https://github.com/Rich-Harris/magic-string/compare/v1.1.0...v1.1.1) (2026-08-12)
+
+### Bug Fixes
+
+* count separators in Bundle#length ([#322](https://github.com/Rich-Harris/magic-string/issues/322)) ([b66f1e5](https://github.com/Rich-Harris/magic-string/commit/b66f1e593ff72194e478a117fd96d84f15b58241)), closes [Bundle#length](https://github.com/Bundle/issues/length)
+* use a source's own separator in Bundle sourcemaps ([#323](https://github.com/Rich-Harris/magic-string/issues/323)) ([58b4118](https://github.com/Rich-Harris/magic-string/commit/58b41183d6079f4c0e5a4a2d5892d11ae84be674))
+* validate update() range and show indices in range errors ([#318](https://github.com/Rich-Harris/magic-string/issues/318)) ([7c0b663](https://github.com/Rich-Harris/magic-string/commit/7c0b6631972b053d5dede3dc7586f29d582d63f2))
+
+# [1.1.0](https://github.com/Rich-Harris/magic-string/compare/v1.0.0...v1.1.0) (2026-07-23)
+
+### Bug Fixes
+
+* trim replacements longer than the range they replace ([#312](https://github.com/Rich-Harris/magic-string/issues/312)) ([ec1a139](https://github.com/Rich-Harris/magic-string/commit/ec1a13955a4d7623175256520a3eb276ed365af8))
+
+### Performance Improvements
+
+* use a `Map` for tracking chunks ([#313](https://github.com/Rich-Harris/magic-string/issues/313)) ([25d7461](https://github.com/Rich-Harris/magic-string/commit/25d746120d84bd778c100ab75fa658160eb0865d))
+
+# [1.0.0](https://github.com/Rich-Harris/magic-string/compare/v0.30.21...v1.0.0) (2026-07-16)
+
+### Bug Fixes
+
+* avoid crash when moving a zero-length range ([#307](https://github.com/Rich-Harris/magic-string/issues/307)) ([56fe8cb](https://github.com/Rich-Harris/magic-string/commit/56fe8cb61e6b64a778e5eb7d0334c57aacb0c4c8))
+
+### Performance Improvements
+
+* add fast path for non-exclusion indent ([#308](https://github.com/Rich-Harris/magic-string/issues/308)) ([992baba](https://github.com/Rich-Harris/magic-string/commit/992baba37ac10bb5e35ad00fb516a272b8757a91))
+
+## [0.30.21](https://github.com/Rich-Harris/magic-string/compare/v0.30.20...v0.30.21) (2025-10-24)
+
+
+
+## [0.30.20](https://github.com/rich-harris/magic-string/compare/v0.30.19...v0.30.20) (2025-10-24)
+
+
+
+## [0.30.19](https://github.com/rich-harris/magic-string/compare/v0.30.18...v0.30.19) (2025-09-08)
+
+
+### Bug Fixes
+
+* this.outro need to be mapped ([#300](https://github.com/rich-harris/magic-string/issues/300)) ([8852c8d](https://github.com/rich-harris/magic-string/commit/8852c8da0fe14ace0efcd2a80902813fd96625f4))
+
+
+### Features
+
+* `replace(All)` support replacement for functions when the first parameter is a string ([#304](https://github.com/rich-harris/magic-string/issues/304)) ([fd1d887](https://github.com/rich-harris/magic-string/commit/fd1d88720b5831791438085b1743b6e499eb6806))
+
+
+
+## [0.30.18](https://github.com/rich-harris/magic-string/compare/v0.30.17...v0.30.18) (2025-08-22)
+
+
+### Bug Fixes
+
+* prevent infinite loop on empty input ([#302](https://github.com/rich-harris/magic-string/issues/302)) ([0fd6253](https://github.com/rich-harris/magic-string/commit/0fd6253e3ef1912ae81ccc35d85ab32275715d5b))
+
+
+
+## [0.30.17](https://github.com/rich-harris/magic-string/compare/v0.30.16...v0.30.17) (2024-12-16)
+
+
+### Bug Fixes
+
+* remove problematic `type: module` ([092697b](https://github.com/rich-harris/magic-string/commit/092697b3be479a19ab5e763f872e612743075d4a))
+
+
+
+## [0.30.16](https://github.com/rich-harris/magic-string/compare/v0.30.15...v0.30.16) (2024-12-16)
+
+
+### Bug Fixes
+
+* missing mapping after a line break with `hires: 'boundary'` ([#298](https://github.com/rich-harris/magic-string/issues/298)) ([24cb8ea](https://github.com/rich-harris/magic-string/commit/24cb8ea50dfe913ea01f6de04d727b27a70f5db7))
+
+
+### Features
+
+* introduce offset ([#297](https://github.com/rich-harris/magic-string/issues/297)) ([29f260e](https://github.com/rich-harris/magic-string/commit/29f260e1902fee9ec17a86ec4ab641b089344131))
+
+
+
+## [0.30.15](https://github.com/rich-harris/magic-string/compare/v0.30.14...v0.30.15) (2024-12-10)
+
+
+### Features
+
+* add `sideEffects: false` to package.json ([#295](https://github.com/rich-harris/magic-string/issues/295)) ([889bd73](https://github.com/rich-harris/magic-string/commit/889bd738675cc599e6db591cef85c85cb36c8658))
+
+
+
+## [0.30.14](https://github.com/rich-harris/magic-string/compare/v0.30.13...v0.30.14) (2024-11-26)
+
+
+### Features
+
+* Include `debugId` in `SourceMap` types ([#294](https://github.com/rich-harris/magic-string/issues/294)) ([5d93dcf](https://github.com/rich-harris/magic-string/commit/5d93dcf7b59a6b6627bb591b13448d5b189b5dff))
+
+
+
+## [0.30.13](https://github.com/rich-harris/magic-string/compare/v0.30.12...v0.30.13) (2024-11-18)
+
+
+### Features
+
+* Add support for sourcemap `debugId` property ([#292](https://github.com/rich-harris/magic-string/issues/292)) ([ef531a8](https://github.com/rich-harris/magic-string/commit/ef531a80c0c3b92d37e07f4c07bf4732b32153a1))
+
+
+
+## [0.30.12](https://github.com/rich-harris/magic-string/compare/v0.30.11...v0.30.12) (2024-10-11)
+
+
+### Performance Improvements
+
+* skip line break mappings ([#284](https://github.com/rich-harris/magic-string/issues/284)) ([5b1ecf7](https://github.com/rich-harris/magic-string/commit/5b1ecf701f663d29891c8d24b3f5869147757a99))
+
+
+
+## [0.30.11](https://github.com/rich-harris/magic-string/compare/v0.30.10...v0.30.11) (2024-07-29)
+
+
+### Bug Fixes
+
+* not use negative indices for remove in empty string ([#281](https://github.com/rich-harris/magic-string/issues/281)) ([5c1cba0](https://github.com/rich-harris/magic-string/commit/5c1cba04ed1a45374ab17b07fc335951d59c1a61))
+
+
+
+## [0.30.10](https://github.com/rich-harris/magic-string/compare/v0.30.9...v0.30.10) (2024-04-17)
+
+
+### Bug Fixes
+
+* **types:** improve chainable types ([#278](https://github.com/rich-harris/magic-string/issues/278)) ([072188f](https://github.com/rich-harris/magic-string/commit/072188f84398437bd75f41bf3d5df49aeae1b587))
+
+
+
+## [0.30.9](https://github.com/rich-harris/magic-string/compare/v0.30.8...v0.30.9) (2024-04-04)
+
+
+### Performance Improvements
+
+* avoid create uncessary overrides for `replace` ([a1b857c](https://github.com/rich-harris/magic-string/commit/a1b857cc5a77af1ffae73355d9c467dce058e427))
+
+
+
+## [0.30.8](https://github.com/rich-harris/magic-string/compare/v0.30.7...v0.30.8) (2024-03-03)
+
+
+### Bug Fixes
+
+* handle last empty line correctly when using update/overwrite ([#274](https://github.com/rich-harris/magic-string/issues/274)) ([29c7bfa](https://github.com/rich-harris/magic-string/commit/29c7bfade8e7d91391c89cf913d65de84b19c3e9))
+
+
+
+## [0.30.7](https://github.com/rich-harris/magic-string/compare/v0.30.6...v0.30.7) (2024-02-05)
+
+
+### Features
+
+* new `reset` method ([#218](https://github.com/rich-harris/magic-string/issues/218)) ([#271](https://github.com/rich-harris/magic-string/issues/271)) ([3dc21e2](https://github.com/rich-harris/magic-string/commit/3dc21e26f04ad4c5314602e511afa210f922d433))
+
+
+
+## [0.30.6](https://github.com/rich-harris/magic-string/compare/v0.30.5...v0.30.6) (2024-01-31)
+
+
+### Features
+
+* support Web Workers by using the global `btoa` ([#269](https://github.com/rich-harris/magic-string/issues/269)) ([8679648](https://github.com/rich-harris/magic-string/commit/86796487f30436cd26291834ae7445fc40ce6139))
+
+
+
+## [0.30.5](https://github.com/rich-harris/magic-string/compare/v0.30.4...v0.30.5) (2023-10-12)
+
+
+### Bug Fixes
+
+* update `sourcesContent` type ([#263](https://github.com/rich-harris/magic-string/issues/263)) ([0e2068d](https://github.com/rich-harris/magic-string/commit/0e2068d6cee9d53c7a242b95f56ea99be3248142))
+
+
+
+## [0.30.4](https://github.com/rich-harris/magic-string/compare/v0.30.3...v0.30.4) (2023-09-29)
+
+
+### Bug Fixes
+
+* correct mappings for update containing new line ([#261](https://github.com/rich-harris/magic-string/issues/261)) ([adaece9](https://github.com/rich-harris/magic-string/commit/adaece9f2370fd1266e89f2fc84c294e1f1b935c))
+* use global `btoa`, support services worker, close [#258](https://github.com/rich-harris/magic-string/issues/258) ([#259](https://github.com/rich-harris/magic-string/issues/259)) ([2dea20b](https://github.com/rich-harris/magic-string/commit/2dea20bab7ca0f776013826074d474f476d281bc))
+
+
+
+## [0.30.3](https://github.com/rich-harris/magic-string/compare/v0.30.2...v0.30.3) (2023-08-21)
+
+
+### Bug Fixes
+
+* trim replaced content with space ([#257](https://github.com/rich-harris/magic-string/issues/257)) ([8088f53](https://github.com/rich-harris/magic-string/commit/8088f53873da13c81877a05ab4549fce86f537b5))
+
+
+
+## [0.30.2](https://github.com/rich-harris/magic-string/compare/v0.30.1...v0.30.2) (2023-07-28)
+
+
+### Features
+
+* hires boundary ([#255](https://github.com/rich-harris/magic-string/issues/255)) ([a63d5f2](https://github.com/rich-harris/magic-string/commit/a63d5f25308ff1965ae676e2aa5311417279e7d4))
+
+
+
+## [0.30.1](https://github.com/rich-harris/magic-string/compare/v0.30.0...v0.30.1) (2023-07-04)
+
+
+### Bug Fixes
+
+* expose .d.ts as cjs version ([#253](https://github.com/rich-harris/magic-string/issues/253)) ([262e113](https://github.com/rich-harris/magic-string/commit/262e113ee25e9c7d317282b3015102ec932ae2f5))
+
+
+
+# [0.30.0](https://github.com/rich-harris/magic-string/compare/v0.29.0...v0.30.0) (2023-02-22)
+
+
+### Bug Fixes
+
+* `null` is invalid for `sources` and `file` ([#242](https://github.com/rich-harris/magic-string/issues/242)) ([d4e9c31](https://github.com/rich-harris/magic-string/commit/d4e9c31082491cfa177b31ce725c9ce39491d549))
+
+
+### Features
+
+* add the ability to ignore-list sources ([#243](https://github.com/rich-harris/magic-string/issues/243)) ([e238f04](https://github.com/rich-harris/magic-string/commit/e238f04be31ec9a3e19b18b75bb5d859f9cb2654))
+
+
+
+# [0.29.0](https://github.com/rich-harris/magic-string/compare/v0.28.0...v0.29.0) (2023-02-11)
+
+
+### Features
+
+* **x_google_ignoreList:** initial support for ignore lists ([3c711cd](https://github.com/rich-harris/magic-string/commit/3c711cd56de6c9735f92e41e457353005c2c0d1c))
+
+
+
+# [0.28.0](https://github.com/rich-harris/magic-string/compare/v0.27.0...v0.28.0) (2023-02-11)
+
+
+### Bug Fixes
+
+* **typings:** sourcesContent may contain null ([#235](https://github.com/rich-harris/magic-string/issues/235)) ([c2b652a](https://github.com/rich-harris/magic-string/commit/c2b652a0d353f183ca991d0b59a7ad0250a52735))
+
+
+
+# [0.27.0](https://github.com/rich-harris/magic-string/compare/v0.26.7...v0.27.0) (2022-12-03)
+
+
+### Performance Improvements
+
+* use @jridgewell/sourcemap-codec ([e68f3e0](https://github.com/rich-harris/magic-string/commit/e68f3e05fe6d87acc1c41eddae97fc32e004320b))
+
+
+
+## [0.26.7](https://github.com/rich-harris/magic-string/compare/v0.26.6...v0.26.7) (2022-10-09)
+
+
+### Bug Fixes
+
+* avoid mutating provided options ([#227](https://github.com/rich-harris/magic-string/issues/227)) ([01d033e](https://github.com/rich-harris/magic-string/commit/01d033e6e8630ef1d0482d9a3899f1da2bf933d5))
+
+
+
+## [0.26.6](https://github.com/rich-harris/magic-string/compare/v0.26.5...v0.26.6) (2022-10-05)
+
+
+### Features
+
+* add `update` method as safer alternative to `overwrite` ([#212](https://github.com/rich-harris/magic-string/issues/212)) ([9a312e3](https://github.com/rich-harris/magic-string/commit/9a312e37a02629f7496c6cfcf307832e991669a3))
+
+
+
+## [0.26.5](https://github.com/rich-harris/magic-string/compare/v0.26.4...v0.26.5) (2022-09-30)
+
+
+### Bug Fixes
+
+* update typescript definition file to contain `replaceAll()` ([#224](https://github.com/rich-harris/magic-string/issues/224)) ([45a4921](https://github.com/rich-harris/magic-string/commit/45a49214ba244b906f4d20450debc8edcc06e2a8))
+
+
+
+## [0.26.4](https://github.com/rich-harris/magic-string/compare/v0.26.3...v0.26.4) (2022-09-22)
+
+
+### Features
+
+* fix `.replace()` when searching string, add `.replaceAll()` ([#222](https://github.com/rich-harris/magic-string/issues/222)) ([04a05bd](https://github.com/rich-harris/magic-string/commit/04a05bdc9bf56e00e616a0ae07923fbd9b63fbd0))
+
+
+### Performance Improvements
+
+* avoiding use of Object.defineProperty in Chunk constructor ([#219](https://github.com/rich-harris/magic-string/issues/219)) ([130794b](https://github.com/rich-harris/magic-string/commit/130794bb8bfd9f21eb1f50c36a1da8eb5443d256))
+
+
+
+## [0.26.3](https://github.com/rich-harris/magic-string/compare/v0.26.2...v0.26.3) (2022-08-30)
+
+
+### Performance Improvements
+
+* delay guess encoded ([#216](https://github.com/rich-harris/magic-string/issues/216)) ([69b13c7](https://github.com/rich-harris/magic-string/commit/69b13c7a09af742e4f31cf419e8f96e6db32ab5a))
+
+
+
+## [0.26.2](https://github.com/rich-harris/magic-string/compare/v0.26.1...v0.26.2) (2022-05-11)
+
+
+### Bug Fixes
+
+* specify types in exports ([#214](https://github.com/rich-harris/magic-string/issues/214)) ([985e7b4](https://github.com/rich-harris/magic-string/commit/985e7b4d8a6fd5911d2ad2e6524999e9198a6b9f))
+
+
+
+## [0.26.1](https://github.com/rich-harris/magic-string/compare/v0.26.0...v0.26.1) (2022-03-03)
+
+
+### Bug Fixes
+
+* **replace:** match replacer function signature with spec ([902541f](https://github.com/rich-harris/magic-string/commit/902541fdff3998e3c957908de10769d2af1a3c70))
+
+
+
+# [0.26.0](https://github.com/rich-harris/magic-string/compare/v0.25.9...v0.26.0) (2022-03-03)
+
+## BREAKING CHANGES
+
+* Support of Node.js v10 is dropped. Now `magic-string` requires Node.js v12 or higher. ([#204](https://github.com/Rich-Harris/magic-string/pull/204))
+* ESM bundle is now shipped with `.mjs` extension ([#197](https://github.com/Rich-Harris/magic-string/pull/197))
+
+```diff
+-  "module": "dist/magic-string.es.js",
++  "module": "dist/magic-string.es.mjs",
++  "exports": {
++    "./package.json": "./package.json",
++    ".": {
++      "import": "./dist/magic-string.es.mjs",
++      "require": "./dist/magic-string.cjs.js"
++    }
++  },
+```
+
+### Features
+
+* new `hasChanged` method ([#202](https://github.com/rich-harris/magic-string/issues/202)) ([5f2dba7](https://github.com/rich-harris/magic-string/commit/5f2dba72774c444538ed10aa5f2096104cb0b4bb))
+* support `replace` method ([#203](https://github.com/rich-harris/magic-string/issues/203)) ([cd74ea2](https://github.com/rich-harris/magic-string/commit/cd74ea2e374f526079ae1a9b9f29bc9cc2fd2ac3))
+
+
+
+## [0.25.9](https://github.com/rich-harris/magic-string/compare/v0.25.8...v0.25.9) (2022-03-03)
+
+
+### Bug Fixes
+
+* allowed overwrite across moved content preceded by split ([#192](https://github.com/rich-harris/magic-string/issues/192)) ([403fa86](https://github.com/rich-harris/magic-string/commit/403fa86b3dcc73f6b2eff177218b7bd4d3128f63))
+* **types:** make options partial by default ([2815e77](https://github.com/rich-harris/magic-string/commit/2815e77dd20ff9f776282420eaacfb4aa9e70cd7))
+* use defineProperty for appending prop in `storeName` ([#194](https://github.com/rich-harris/magic-string/issues/194)) ([96b7cd3](https://github.com/rich-harris/magic-string/commit/96b7cd37016c1e3fd7037b3910ae56f806a9c09f))
+
+
+
+## [0.25.8](https://github.com/rich-harris/magic-string/compare/v0.25.7...v0.25.8) (2022-03-02)
+
+
+### Bug Fixes
+
+* **types:** mark `MagicString` options as optional ([#183](https://github.com/rich-harris/magic-string/issues/183)) ([15c3e66](https://github.com/rich-harris/magic-string/commit/15c3e6691a2cce79d5298af15fd8a2b02facef88))
+
+
+
+
+## 0.25.7
+
+* fix bundle mappings after remove and move in multiple sources ([#172](https://github.com/Rich-Harris/magic-string/issues/172))
+
+## 0.25.6
+
+* Use bitwise operators for small performance boost ([#171](https://github.com/Rich-Harris/magic-string/pull/171))
+
+## 0.25.5
+
+* Use a bitset to reduce memory consumption ([#167](https://github.com/Rich-Harris/magic-string/issues/167))
+
+## 0.25.4
+
+* Clone `intro` and `outro` ([#162](https://github.com/Rich-Harris/magic-string/issues/162))
+
+## 0.25.3
+
+* Fix typing of `SourceMap.version`.
+
+## 0.25.2
+
+* Remove deprecated `new Buffer(...)`
+* Handle characters outside Latin1 range when generating a sourcemap in browser ([#154](https://github.com/Rich-Harris/magic-string/issues/154))
+
+## 0.25.1
+
+* Additional types for index.d.ts ([#148](https://github.com/Rich-Harris/magic-string/pull/148))
+
+## 0.25.0
+
+* Add `length` method ([#145](https://github.com/Rich-Harris/magic-string/pull/145))
+* Fix trimming chunks with intro/outro ([#144](https://github.com/Rich-Harris/magic-string/pull/144))
+
+## 0.24.1
+
+* Add `lastLine` and `lastChar` methods ([#142](https://github.com/Rich-Harris/magic-string/pull/142))
+
+## 0.24.0
+
+* Add `isEmpty` methods ([#137](https://github.com/Rich-Harris/magic-string/pull/137))
+* Fix a potential race condition ([#136](https://github.com/Rich-Harris/magic-string/pull/136))
+* Fix CJS/ES bundles inlining `sourcemap-codec` in 0.23.2.
+
+## 0.23.2
+
+* Add `generateDecodedMap` methods ([#134](https://github.com/Rich-Harris/magic-string/pull/134))
+
+## 0.23.1
+
+* Performance ([#132](https://github.com/Rich-Harris/magic-string/pull/132))
+
+## 0.23.0
+
+* Use `sourcemap-codec` for improved performance ([#133](https://github.com/Rich-Harris/magic-string/pull/133))
+
+## 0.22.5
+
+* Add TypeScript interfaces used by rollup ([#131](https://github.com/Rich-Harris/magic-string/pull/131))
+* Remove src directory from npm package
+
+## 0.22.4
+
+* `contentOnly` and `storeName` are both optional
+
+## 0.22.3
+
+* Add `original` to TS definitions
+
+## 0.22.2
+
+* Avoid `declare module` ([#127](https://github.com/Rich-Harris/magic-string/pull/127))
+
+## 0.22.1
+
+* Update TypeScript definitions ([#124](https://github.com/Rich-Harris/magic-string/pull/124))
+
+## 0.22.0
+
+* Prevent `overwrite` state corruption ([#115](https://github.com/Rich-Harris/magic-string/issues/115))
+* Various bugfixes ([#126](https://github.com/Rich-Harris/magic-string/pull/126))
+
+## 0.21.3
+
+* Clone `indentExclusionRanges` correctly ([#122](https://github.com/Rich-Harris/magic-string/pull/122))
+* Fix more typings ([#122](https://github.com/Rich-Harris/magic-string/pull/122))
+
+## 0.21.2
+
+* Add `default` property referencing self in index-legacy.js, to work around TypeScript bug ([#121](https://github.com/Rich-Harris/magic-string/pull/121))
+
+## 0.21.1
+
+* Add typings file to package
+
+## 0.21.0
+
+* Add TypeScript bindings ([#119](https://github.com/Rich-Harris/magic-string/pull/119))
+
+## 0.20.0
+
+* The fourth argument to `overwrite` is a `{storeName, contentOnly}` options object. `storeName: true` is equivalent to `true` before. `contentOnly` will preserve existing appends/prepends to the chunk in question
+
+## 0.19.1
+
+* Prevent overwrites across a split point (i.e. following a `move`)
+* Implement `remove` separately to `overwrite`
+
+## 0.19.0
+
+* More accurate bundle sourcemaps ([#114](https://github.com/Rich-Harris/magic-string/pull/114))
+
+## 0.18.0
+
+* Optimisation – remove empty chunks following `overwrite` or `remove` ([#113](https://github.com/Rich-Harris/magic-string/pull/113))
+
+## 0.17.0
+
+* Add `appendLeft`, `appendRight`, `prependLeft`, `prependRight` methods ([#109](https://github.com/Rich-Harris/magic-string/issues/109))
+* `insertLeft` and `insertRight` are deprecated in favour of `appendLeft` and `prependRight` respectively
+
+## 0.16.0
+
+* Include inserts in range for `overwrite` and `remove` operations ([#89](https://github.com/Rich-Harris/magic-string/pull/89))
+* Make options optional for `bundle.generateMap(...)` ([#73](https://github.com/Rich-Harris/magic-string/pull/73))
+
+## 0.15.2
+
+* Generate correct bundle sourcemap with prepended/appended content
+
+## 0.15.1
+
+* Minor sourcemap fixes
+
+## 0.15.0
+
+* Use named export of `Bundle` in ES build, so ES consumers of magic-string can tree-shake it out
+
+## 0.14.0
+
+* Throw if overwrite of zero-length range is attempted
+* Correctly handle redundant move operations
+
+## 0.13.1
+
+* Fix a bevy of `s.slice()` issues ([#62](https://github.com/Rich-Harris/magic-string/pull/62))
+
+## 0.13.0
+
+* Breaking: `insertAfter` is now `insertLeft`, `insertBefore` is now `insertRight`
+* Breaking: `insert` is no longer available. Use `insertLeft` and `insertRight`
+* Significant performance improvements
+
+## 0.12.1
+
+* Fix sourcemap generation with `insertAfter` and `insertBefore`
+
+## 0.12.0
+
+* Add `insertAfter` and `insertBefore` methods
+
+## 0.11.4
+
+* Fix two regression bugs with `trim()`
+* More informative error message on illegal removals
+
+## 0.11.3
+
+* Fix trim methods to ensure correct sourcemaps with trimmed content ([#53](https://github.com/Rich-Harris/magic-string/pull/53))
+
+## 0.11.2
+
+* Support sourcemaps with moved content
+
+## 0.11.1
+
+* Use `findIndex` helper for 0.12 support
+
+## 0.11.0
+
+* Add experimental `move()` method
+* Refactor internals to support `move()`
+
+## 0.10.2
+
+* Do not overwrite inserts at the end of patched ranges ([#35](https://github.com/Rich-Harris/magic-string/pull/35))
+
+## 0.10.1
+
+* Zero-length inserts are not removed on adjacent overwrites
+
+## 0.10.0
+
+* Complete rewrite, resulting in ~40x speed increase ([#30](https://github.com/Rich-Harris/magic-string/pull/30))
+* Breaking – `magicString.locate` and `locateOrigin` are deprecated
+* More forgiving rules about contiguous patches, and which ranges are valid with `magicString.slice(...)`
+
+## 0.9.1
+
+* Update deps
+
+## 0.9.0
+
+* Update build process
+
+## 0.8.0
+
+* Add an ES6 build, change default UMD build to CommonJS (but keeping existing UMD build with bundled dependencies)
+* Make properties non-enumerable, for cleaner logging
+* Update dependencies
+
+## 0.7.0
+
+* The `names` array is populated when generating sourcemaps, and mappings include name indices where appropriate ([#16](https://github.com/Rich-Harris/magic-string/issues/16))
+* Replaced content is mapped correctly in sourcemaps ([#15](https://github.com/Rich-Harris/magic-string/issues/15))
+
+## 0.6.6
+
+* Adjust mappings correctly when removing replaced content
+* Error correctly when removed characters are used as slice anchors
+
+## 0.6.5
+
+* Fix `jsnext:main` in package.json
+
+## 0.6.4
+
+* Fix bug with positive integer coercion
+
+## 0.6.3
+
+* Intro content is correctly indented
+* Content following an intro with trailing newline is correctly indented
+
+## 0.6.2
+
+* Noop indents are still chainable (fixes bug introduced in 0.6.1)
+
+## 0.6.1
+
+* Indenting with an empty string is a noop
+
+## 0.6.0
+
+* Use rollup for bundling, instead of esperanto
+
+## 0.5.3
+
+* Correct sourcemap generation with bundles containing varied separators
+* `s.clone()` clones indent exclusion ranges and sourcemap locations
+
+## 0.5.2
+
+* `s.slice()` accepts negative numbers, and the second argument can be omitted (means 'original string length'), just like `String.prototype.slice`
+* More informative error message when trying to overwrite content illegally
+
+## 0.5.1
+
+* Allow bundle separator to be the empty string
+* Indenting is handled correctly with empty string separator
+
+## 0.5.0
+
+* `s.replace()` is deprecated in favour of `s.overwrite()` (identical signature)
+* `bundle.addSource()` can take a `MagicString` instance as its sole argument, for convenience
+* The `options` in `new MagicString(str, options)` can include `filename` and `indentExclusionRanges` options, which will be used when bundling
+* New method: `s.snip( start, end )`
+
+## 0.4.9
+
+* `file` option is optional when generating a bundle sourcemap
+
+## 0.4.7
+
+* Repeated insertions at position 0 behave the same as other positions ([#10](https://github.com/Rich-Harris/magic-string/pull/10))
+
+## 0.4.6
+
+* Overlapping ranges can be removed
+* Non-string content is rejected ([#9](https://github.com/Rich-Harris/magic-string/pull/9))
+
+## 0.4.5
+
+* Implement `source.addSourcemapLocation()`
+
+## 0.4.4
+
+* Another Windows fix, this time for file paths when bundling
+
+## 0.4.3
+
+* Handle Windows-style CRLF newlines when determining whether a line is empty
+
+## 0.4.2
+
+* Fix typo in package.json (d'oh again)
+* Use only relative paths for internal modules - makes bundling with dependents (i.e. esperanto) possible
+
+## 0.4.1
+
+* Includes correct files in npm package (d'oh)
+
+## 0.4.0
+
+* Using experimental Esperanto feature ([esperantojs/esperanto#68](https://github.com/esperantojs/esperanto/issues/68)) to generate version with `vlq` dependency included
+
+## 0.3.1
+
+* Fixes a bug whereby multiple insertions at the same location would cause text to repeat ([#5](https://github.com/Rich-Harris/magic-string/issues/5))
+
+## 0.3.0
+
+* Breaking change - `source.indentStr` is `null` if no lines are indented. Use `source.getIndentString()` for the old behaviour (guess, and if no lines are indented, return `\t`)
+* `bundle.getIndentString()` ignores sources with no indented lines when guessing indentation ([#3](https://github.com/Rich-Harris/magic-string/issues/3))
+
+## 0.2.7
+
+* `source.trimLines()` removes empty lines from start/end of source, leaving other whitespace untouched
+* Indentation is not added to an empty source
+
+## 0.2.6
+
+* Performance improvement - adjustments are only made when necessary
+
+## 0.2.5
+
+* Single spaces are ignored when guessing indentation - experience shows these are more likely to be e.g. JSDoc comments than actual indentation
+* `bundle.addSource()` can take an `indentExclusionRanges` option
+
+## 0.2.4
+
+* Empty lines are not indented
+
+## 0.2.3
+
+* Fixes edge case with bundle sourcemaps
+
+## 0.2.2
+
+* Make `sources` paths in sourcemaps relative to `options.file`
+
+## 0.2.1
+
+* Minor fix for `bundle.indent()`
+
+## 0.2.0
+
+* Implement `MagicString.Bundle` for concatenating magic strings
+
+## 0.1.10
+
+* Fix sourcemap encoding
+
+## 0.1.9
+
+* Better performance when indenting large chunks of code
+
+## 0.1.8
+
+* Sourcemaps generated with `s.generateMap()` have a `toUrl()` method that generates a DataURI
+
+## 0.1.7
+
+* Implement `s.insert( index, content )` - roughly equivalent to `s.replace( index, index, content )`
+
+## 0.1.6
+
+* Version bump for npm's benefit
+
+## 0.1.5
+
+* `s.indent({ exclude: [ x, y ] })` prevents lines between (original) characters `x` and `y` from being indented. Multiple exclusion ranges are also supported (e.g. `exclude: [[a, b], [c, d]]`)
+
+## 0.1.4
+
+* `s.locate()` doesn't throw out-of-bound error if index is equal to original string's length
+
+## 0.1.3
+
+* `s.trim()` returns `this` (i.e. is chainable)
+
+## 0.1.2
+
+* Implement `s.slice()`
+
+## 0.1.1
+
+* Implement `s.trim()`
+
+## 0.1.0
+
+* First release
