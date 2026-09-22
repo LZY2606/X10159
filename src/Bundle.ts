@@ -327,7 +327,7 @@ export class Bundle {
               sourceIndex,
               chunk.content,
               loc,
-              chunk.storeName ? names.indexOf(chunk.original) : -1,
+              chunk.storeName ? names.indexOf(chunk.originalName ?? chunk.original) : -1,
             )
           }
           else {

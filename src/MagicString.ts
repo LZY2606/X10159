@@ -388,7 +388,7 @@ export class MagicString {
           sourceIndex,
           chunk.content,
           loc,
-          chunk.storeName ? names.indexOf(chunk.original) : -1,
+          chunk.storeName ? names.indexOf(chunk.originalName ?? chunk.original) : -1,
         )
       }
       else {
@@ -851,6 +851,13 @@ export class MagicString {
       }
 
       first.edit(content, storeName, !overwrite)
+
+      // A prior split within [start, end) leaves only the first part of the
+      // pre-edit text in `first.original`, so remember the full range text for
+      // the name lookup; otherwise the mapped segment loses its name index.
+      if (storeName) {
+        first.originalName = this.original.slice(start, end)
+      }
     }
     else {
       // must be inserting at the end

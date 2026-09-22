@@ -4,6 +4,7 @@ export class Chunk {
   declare start: number
   declare end: number
   declare original: string
+  declare originalName: string | undefined
   declare intro: string
   declare outro: string
   declare content: string
@@ -16,6 +17,7 @@ export class Chunk {
     this.start = start
     this.end = end
     this.original = content
+    this.originalName = undefined
 
     this.intro = ''
     this.outro = ''
@@ -49,6 +51,7 @@ export class Chunk {
   clone(): Chunk {
     const chunk = new Chunk(this.start, this.end, this.original)
 
+    chunk.originalName = this.originalName
     chunk.intro = this.intro
     chunk.outro = this.outro
     chunk.content = this.content
@@ -109,6 +112,7 @@ export class Chunk {
     if (this.edited) {
       this.content = this.original
       this.storeName = false
+      this.originalName = undefined
       this.edited = false
     }
   }
