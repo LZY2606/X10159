@@ -1,0 +1,118 @@
+{
+ "seed": 12345,
+ "source": "a\nbb\nccc",
+ "ops": [
+  {
+   "kind": "appendRight",
+   "index": 4,
+   "content": "Z"
+  },
+  {
+   "kind": "prependRight",
+   "index": 6,
+   "content": "1"
+  },
+  {
+   "kind": "addSourcemapLocation",
+   "index": 8
+  },
+  {
+   "kind": "addSourcemapLocation",
+   "index": 5
+  },
+  {
+   "kind": "prependRight",
+   "index": 4,
+   "content": "\n"
+  },
+  {
+   "kind": "move",
+   "start": 6,
+   "end": 8,
+   "to": 5,
+   "affinity": "left"
+  },
+  {
+   "kind": "appendLeft",
+   "index": 4,
+   "content": "Z"
+  },
+  {
+   "kind": "appendLeft",
+   "index": 8,
+   "content": "X"
+  },
+  {
+   "kind": "move",
+   "start": 6,
+   "end": 7,
+   "to": 5,
+   "affinity": "right"
+  },
+  {
+   "kind": "addSourcemapLocation",
+   "index": 0
+  },
+  {
+   "kind": "remove",
+   "start": 7,
+   "end": 8
+  },
+  {
+   "kind": "indent",
+   "prefix": "  ",
+   "indentStart": true
+  },
+  {
+   "kind": "appendLeft",
+   "index": 6,
+   "content": "\n"
+  },
+  {
+   "kind": "overwrite",
+   "start": 7,
+   "end": 8,
+   "content": "R",
+   "storeName": true
+  },
+  {
+   "kind": "addSourcemapLocation",
+   "index": 6
+  },
+  {
+   "kind": "appendLeft",
+   "index": 8,
+   "content": "_"
+  },
+  {
+   "kind": "appendLeft",
+   "index": 8,
+   "content": "\n"
+  },
+  {
+   "kind": "appendLeft",
+   "index": 8,
+   "content": "\n"
+  }
+ ]
+}
+
+const s = new MagicString("a\nbb\nccc")
+s.appendRight(4, "Z")
+s.prependRight(6, "1")
+s.addSourcemapLocation(8)
+s.addSourcemapLocation(5)
+s.prependRight(4, "\n")
+s.move(6, 8, 5, 'left')
+s.appendLeft(4, "Z")
+s.appendLeft(8, "X")
+s.move(6, 7, 5)
+s.addSourcemapLocation(0)
+s.remove(7, 8)
+s.indent("  ")
+s.appendLeft(6, "\n")
+s.overwrite(7, 8, "R", { storeName: true })
+s.addSourcemapLocation(6)
+s.appendLeft(8, "_")
+s.appendLeft(8, "\n")
+s.appendLeft(8, "\n")
